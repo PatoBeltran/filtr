@@ -1,14 +1,55 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+  <!--includes meta tags, title and more header definitions-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
   <title>Filtr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+  <!-- Furatto core CSS -->
+  <%= stylesheet_link_tag "application", :cache => true %>
+  <%= csrf_meta_tag %>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
+
 <body>
+    <%= navigation_bar do %>
+      <ul class="brand-section">
+        <li class="brand-name">
+        <a href="/" class="menu-trigger" id="trigger">Filtr</a>
+        </li>
+        <li class="menu-toggle">
+        <a href="#"></a>
+        </li>
+      </ul>
+      <ul class="pull-right">
+        <%- if user_signed_in? %>
+          <li><%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: :delete %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
 
+    <div class="footer">
+      <div class="row">
+        <p>Build in Facebook Hackathon Tec de Monterrey 2014</p>
+        <ul class="navigation inline">
+          <li class="header">Currently v1.0.0</li>
+        </ul>
+      </div>
+    </div>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

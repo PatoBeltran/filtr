@@ -37,11 +37,16 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 
 
 gem "figaro"
 gem "unicorn"
+gem "devise"
+gem 'compass-rails', '~> 1.1.3'
+gem 'furatto'
+gem 'omniauth-facebook'
+
 group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
