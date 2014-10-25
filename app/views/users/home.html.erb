@@ -24,13 +24,17 @@
             <% end %>
           </div>
           <div class="col-5 msg">
-            <%= post["message"] %>
+            <strong><%= post["from"]["name"] if post["from"] %></strong> <br /><%= post["message"] %>
           </div>
           <div class="col-4 row sta">
             <div class="col-2"></div>
             <div class="col-10">
               <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
-                <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% if option[0] == "cool" && option[1] >= 0.9 %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{(option[1] - 0.9).round(2)}" %></div></div>
+                <% else %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% end %>
               <% end %>
             </div>
             <div class="col-12 row cd">
@@ -66,13 +70,17 @@
               <% end %>
             </div>
             <div class="col-5 msg">
-              <%= post["message"] %>
+            <strong><%= post["from"]["name"] if post["from"] %></strong> <br /><%= post["message"] %>
             </div>
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each_with_index do |option,i| %>
+                  <% if option[0] == "cool" && option[1] >= 0.9 %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{(option[1] - 0.9).round(2)}" %></div></div>
+                <% else %>
                   <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% end %>
                 <% end %>
               </div>
             </div>
@@ -97,13 +105,17 @@
               <% end %>
             </div>
             <div class="col-5 msg">
-              <%= post["message"] %>
+            <strong><%= post["from"]["name"] if post["from"] %></strong> <br /><%= post["message"] %>
             </div>
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                  <% if option[0] == "cool" && option[1] >= 0.9 %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{(option[1] - 0.9).round(2)}" %></div></div>
+                <% else %>
                   <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% end %>
                 <% end %>
               </div>
             </div>
@@ -128,13 +140,17 @@
               <% end %>
             </div>
             <div class="col-5 msg">
-              <%= post["message"] %>
+            <strong><%= post["from"]["name"] if post["from"] %></strong> <br /><%= post["message"] %>
             </div>
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                  <% if option[0] == "cool" && option[1] >= 0.9 %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{(option[1] - 0.9).round(2)}" %></div></div>
+                <% else %>
                   <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% end %>
                 <% end %>
               </div>
             </div>
