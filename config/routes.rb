@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root to: "pages#landing"
-
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout" },
                    controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
+  resources :users do
+    member do
+      get 'home'
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

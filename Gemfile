@@ -47,7 +47,7 @@ gem 'furatto'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'annotate'
-gem 'ankusa'
+gem 'ankusa', git: "https://github.com/PatoBeltran/ankusa.git"
 gem 'mongo'
 gem 'bson_ext'
 

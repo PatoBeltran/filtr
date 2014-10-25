@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def classifier
     @classifier ||= Ankusa::NaiveBayesClassifier.new STORAGE
   end
+
+  def is_current_user(id)
+    unless current_user.id.to_s == id
+      redirect_to :root, notice: "You don't have the permission to enter."
+    end
+  end
 end
