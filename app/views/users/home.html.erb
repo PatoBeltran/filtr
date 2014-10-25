@@ -1,3 +1,4 @@
+<div>Classnames: <%= @classifier.classnames %></div>
 <% @results.each do |post| %>
   <div>
     <div><strong>Classification:</strong> <%= @classifier.classify "#{post["message"]}" %></div>
