@@ -47,6 +47,9 @@ gem 'furatto'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'annotate'
+gem 'ankusa'
+gem 'mongo'
+gem 'bson_ext'
 
 group :test do
   gem "cucumber-rails", require: false
