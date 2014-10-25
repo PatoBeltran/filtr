@@ -134,8 +134,12 @@
     </div>
   </div>
 <% end %>
+<div class="navigation">
+  <div class="prev button large primary btn">
+    <%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
+  </div>
 
-
-<%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
-<%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
-
+  <div class="next button large primary btn">
+    <%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
+  </div>
+</div>
