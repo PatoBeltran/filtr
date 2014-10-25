@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
       @results = @results.select { |a| !ClasifiedPost.find_by(pid: a["id"]) } if current_user.admin?
     rescue
-      @error = "You didn't give the app permission to view your news feed :("
+      @error = "You didn't give the app permission to view your News Feed, or Facebook is still approving giving us your News Feed"
     end
   end
 
