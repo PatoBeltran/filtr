@@ -17,7 +17,7 @@
   margin-top: -90px;
 }
 .clever {
-  background: tomato;
+  background: lightgreen;
 }
 
 .cool {
@@ -25,6 +25,10 @@
 }
 
 .cheesy {
+  background: tomato;
+}
+
+.normal {
   background: lightgreen;
 }
 
@@ -118,4 +122,14 @@
 
 .footer {
   text-align: center;
+}
+.cd {
+  margin-left: 15px;
+}
+.cd .button {
+  margin: 3px;
+}
+
+.col-32 {
+  width: 29%;
 }

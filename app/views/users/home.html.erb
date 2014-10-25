@@ -2,7 +2,7 @@
 <% icons = ["heart", "bolt", "glass"] %>
 <% if current_user.admin? %>
   <% @results.each do |post| %>
-      <div class="post">
+      <div class="post normal">
         <% if post["type"] %>
           <div class="ribbon-wrapper">
             <div class="corner">
@@ -26,11 +26,13 @@
                 <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
               <% end %>
             </div>
+            <div class="col-12 row cd">
+              <%= link_to "Cheesy", classify_user_path(type: "cheesy", pid: post["id"], message: post["message"]), class: "button col-32 alpha" %>
+              <%= link_to "Clever", classify_user_path(type: "clever", pid: post["id"], message: post["message"]),  class: "button col-32 alpha" %>
+              <%= link_to "Cool", classify_user_path(type: "cool", pid: post["id"], message: post["message"]),  class: "button col-32 alpha" %>
+            </div>
           </div>
         </div>
-        <%= link_to "Cheesy", classify_user_path(type: "cheesy", pid: post["id"], message: post["message"]) %>
-        <%= link_to "Clever", classify_user_path(type: "clever", pid: post["id"], message: post["message"]) %>
-        <%= link_to "Cool", classify_user_path(type: "cool", pid: post["id"], message: post["message"]) %>
       </div>
     <% end %>
 <% else %>
