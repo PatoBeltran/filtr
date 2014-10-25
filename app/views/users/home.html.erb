@@ -1,3 +1,5 @@
+<div class="wrapper">
+<% icons = ["heart", "bolt", "glass"] %>
 <% if current_user.admin? %>
   <% @results.each do |post| %>
       <div class="clever post">
@@ -20,8 +22,8 @@
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
-                <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                  <div class="stats clearfix"> <div class="nam"> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
                 <% end %>
               </div>
             </div>
@@ -33,10 +35,10 @@
       </div>
     <% end %>
 <% else %>
-  <ul class="navigation inline" style="margin: 0 auto; width: 13em;" data-tabu data-start-index="1">
-    <li><a href="#clever">clever</a></li>
-    <li><a href="#cool">cool</a></li>
-    <li><a href="#cheesy">cheesy</a></li>
+  <ul class="navigation inline" style="margin: 0 auto; width: 16em;" data-tabu data-start-index="1">
+    <li><a href="#clever"><i class="fa fa-bolt"></i> clever</a></li>
+    <li><a href="#cool"><i class="fa fa-glass"></i> cool</a></li>
+    <li><a href="#cheesy"><i class="fa fa-heart"></i> cheesy</a></li>
   </ul>
   <div class="tabu-content">
     <div class="content" id="clever">
@@ -61,8 +63,8 @@
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
-                <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                  <div class="stats clearfix"> <div class="nam"> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% @classifier.classifications("#{post["message"]}").each_with_index do |option,i| %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
                 <% end %>
               </div>
             </div>
@@ -92,8 +94,8 @@
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
-                <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                  <div class="stats clearfix"> <div class="nam"> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
                 <% end %>
               </div>
             </div>
@@ -123,8 +125,8 @@
             <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
-                <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                  <div class="stats clearfix"> <div class="nam"> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
+                <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
                 <% end %>
               </div>
             </div>
@@ -136,10 +138,11 @@
 <% end %>
 <div class="navigation">
   <div class="prev button large primary btn">
-    <%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
+    <i class="fa fa-hand-o-left"></i> <%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
   </div>
 
   <div class="next button large primary btn">
-    <%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
+    <i class="fa fa-hand-o-right"></i> <%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
   </div>
+</div>
 </div>

@@ -1,9 +1,12 @@
 <div class="section-jumbo-container">
- 	<h1 class="jumbo-header">Filtr</h1>
+  <h1 class="jumbo-header"><i class='fa fa-filter'></i><br />Filtr</h1>
  	<h2 class="motto">Your news feed, classified ;)</h2>
   	<div class="btn-social btn-facebook">
 	  	<%- unless user_signed_in? %>
-		  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), style: 'color:#FFFFFF;'%>
+        <%= link_to user_omniauth_authorize_path(:facebook), style: 'color:#FFFFFF;' do %>
+          <i class='fa fa-facebook'></i>
+           Login with Facebook
+        <% end %>
 		<% end %>
 	</div>
 </div>

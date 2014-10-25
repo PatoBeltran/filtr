@@ -25,7 +25,7 @@
     <%= navigation_bar do %>
       <ul class="brand-section">
         <li class="brand-name">
-        <a href="/" class="menu-trigger" id="trigger">Filtr</a>
+        <a href="/" class="menu-trigger" id="trigger"><i class='fa fa-filter'></i> Filtr</a>
         </li>
         <li class="menu-toggle">
         <a href="#"></a>
@@ -40,17 +40,18 @@
   </div>
 
 
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
-    <div class="wrapper">
-      <%= yield %>
+  <% flash.each do |key, value| %>
+    <div class="alert <%= key %>">
+      <a href="#" class="close">x</a>
+      <%= value %>
     </div>
+  <% end %>
+  <%= yield %>
 
-    <div class="footer">
-      <p>Build in Facebook Hackathon Tec de Monterrey 2014</p>
-    </div>
-    <div id=“fb-root”></div>
-    <%= javascript_include_tag "application" %>
+  <div class="footer">
+    <p>Build in Facebook Hackathon Tec de Monterrey 2014</p>
+  </div>
+  <div id=“fb-root”></div>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

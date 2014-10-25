@@ -50,6 +50,7 @@ gem 'annotate'
 gem 'ankusa', git: "https://github.com/PatoBeltran/ankusa.git"
 gem 'mongo'
 gem 'bson_ext'
+gem "font-awesome-rails"
 
 group :test do
   gem "cucumber-rails", require: false
