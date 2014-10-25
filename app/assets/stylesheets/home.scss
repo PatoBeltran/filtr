@@ -59,12 +59,22 @@
   font-size: 13px;
 }
 
+.msg, .pict, .sta {
+  text-align: center;
+}
+
+.msg {
+  padding-top: 2em;
+  font-size: 1.2em;
+}
+
 .ribbon-wrapper { 
   position:relative;
   width:150px; 
   height: 90px;
   overflow:hidden;
   margin-left: -15px;
+  opacity: .7;
 }
 .corner {
     background-color: #a00;

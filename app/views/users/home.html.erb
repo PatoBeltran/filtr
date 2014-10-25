@@ -14,10 +14,10 @@
                 <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
             </div>
-            <div class="col-5">
+            <div class="col-5 msg">
               <%= post["message"] %>
             </div>
-            <div class="col-4 row">
+            <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each do |option| %>
@@ -55,10 +55,10 @@
                 <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
             </div>
-            <div class="col-5">
+            <div class="col-5 msg">
               <%= post["message"] %>
             </div>
-            <div class="col-4 row">
+            <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each do |option| %>
@@ -86,10 +86,10 @@
                 <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
             </div>
-            <div class="col-5">
+            <div class="col-5 msg">
               <%= post["message"] %>
             </div>
-            <div class="col-4 row">
+            <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each do |option| %>
@@ -117,10 +117,10 @@
                 <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
             </div>
-            <div class="col-5">
+            <div class="col-5 msg">
               <%= post["message"] %>
             </div>
-            <div class="col-4 row">
+            <div class="col-4 row sta">
               <div class="col-2"></div>
               <div class="col-10">
                 <% @classifier.classifications("#{post["message"]}").each do |option| %>
