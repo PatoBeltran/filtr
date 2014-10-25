@@ -1,0 +1,49 @@
+.section-jumbo-container {
+	background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #3498d9), color-stop(100%, #67b2e3));
+	background: -webkit-linear-gradient(left, #3498d9, #67b2e3);
+	background: -moz-linear-gradient(left, #3498d9, #67b2e3);
+	background: -o-linear-gradient(left, #3498d9, #67b2e3);
+	background: linear-gradient(left, #3498d9, #67b2e3);
+	text-align: center;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	margin-top: -10px;
+}
+.section-jumbo-container .jumbo-header {
+	margin: 0;
+	font-size: 50px;
+	color: #093857;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.section-jumbo-container .motto {
+	margin: 0;
+	font-size: 26px;
+	color: #fff;
+	margin-bottom: 50px;
+}
+
+.footer {
+	text-align: center;
+	margin-top: -15px;
+}
+
+.btn-social {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 98%;
+	font-weight: 400;
+	margin: 0 auto;
+}
+
+.btn-facebook {
+	color: white;
+	background: #3c5a97;
+	border: 1px solid #2d4473;
+	padding: 30px;
+	width: 280px;
+	font-size: 20px;
+}
