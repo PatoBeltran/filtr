@@ -1,4 +1,4 @@
-<%= @user.name %>
+<h2 style="text-align:center"> What kind of projection does <%= @user.name %> make? </h2>
 <html>
   <head>
     <!--Load the AJAX API-->
@@ -21,25 +21,150 @@
                                         data.addColumn('string', 'Type');
                                                 data.addColumn('number', 'Number of appearance');
                                                         data.addRows([
-                                                                      ['Clever', 3],
-                                                                                ['Cool', 1],
-                                                                                          ['Cheesy', 1],
+                                                                      ['Clever', 9],
+                                                                                ['Cool', 123],
+                                                                                          ['Cheesy', 48],
                                                                                                         ]);
 
                                                                 // Set chart options
-                                                                var options = {'title':'What type of posts do I feed?',
-                                                                                         'width':400,
+                                                                var options = {'title':'What type of posts do you feed?',
+                                                                                         'width':700,
                                                                                                                 'height':300};
 
                                                                         // Instantiate and draw our chart, passing in some options.
                                                                         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
                                                                                 chart.draw(data, options);
                                                                                       }
-    </script>
-      </head>
 
-        <body>
-          <!--Div that will hold the pie chart-->
-          <div id="chart_div"></div>
-        </body>
-        </html>
+
+
+
+                                                                                      //BarChart
+                google.load('visualization', '1.0', {'packages':['corechart']});
+
+                // Set a callback to run when the Google Visualization API is loaded.
+                google.setOnLoadCallback(drawBarChart);
+
+                      // Callback that creates and populates a data table,
+                      // instantiates the pie chart, passes in the data and
+                      // draws it.
+                      function drawBarChart() {
+
+                                // Create the data table.
+                                var dataBar = new google.visualization.DataTable();
+                                        dataBar.addColumn('string', 'Type');
+                                                dataBar.addColumn('number', 'Av.');
+                                                        dataBar.addRows([
+                                                                      ['Clever', 13],
+                                                                                ['Cool', 21],
+                                                                                          ['Cheesy', 3],
+                                                                                                        ]);
+
+                                                                // Set chart options
+                                                                 var optionsBar = {'title':'Average of likes per type of posts',
+                                                                                         'width':400,
+                                                                                                                'height':300};
+
+                                                                        // Instantiate and draw our chart, passing in some options.
+                                                                        var chartBar = new google.visualization.BarChart(document.getElementById('chart_Bar'));
+                                                                                chartBar.draw(dataBar, optionsBar);
+                                                                                      }
+
+                                                                                      //male-Female
+                  google.load('visualization', '1.0', {'packages':['corechart']});
+
+                // Set a callback to run when the Google Visualization API is loaded.
+                google.setOnLoadCallback(drawGender);
+
+                      // Callback that creates and populates a data table,
+                      // instantiates the pie chart, passes in the data and
+                      // draws it.
+                      function drawGender() {
+
+                                // Create the data table.
+                                var dataGender = new google.visualization.DataTable();
+                                        dataGender.addColumn('string', 'Type');
+                                                dataGender.addColumn('number', 'Av.');
+                                                        dataGender.addRows([
+                                                                      ['Dudes', 2.4],
+                                                                                ['Chicks', 3.5],
+                                                                                      
+                                                                                                        ]);
+
+                                                                // Set chart options
+                                                                 var optionsGender = {'title':'Dudes vs. Chicks in your photos',
+                                                                                         'width':400,
+                                                                                                                'height':300};
+
+                                                                        // Instantiate and draw our chart, passing in some options.
+                                                                        var chartGender = new google.visualization.BarChart(document.getElementById('gender_Bar'));
+                                                                                chartGender.draw(dataGender, optionsGender);
+                                                                                      }
+
+                 // Load the Visualization API and the piechart package.
+          google.load('visualization', '1.0', {'packages':['corechart']});
+
+                // Set a callback to run when the Google Visualization API is loaded.
+                google.setOnLoadCallback(moodChart);
+
+                      // Callback that creates and populates a data table,
+                      // instantiates the pie chart, passes in the data and
+                      // draws it.
+                      function moodChart() {
+
+                                // Create the data table.
+                                var dataMood = new google.visualization.DataTable();
+                                        dataMood.addColumn('string', 'Type');
+                                                dataMood.addColumn('number', 'Number of appearance');
+                                                        dataMood.addRows([
+                                                                      ['Happy', 98],
+                                                                                ['Stressed', 15],
+                                                                                          ['Disgusted', 11],
+                                                                                                ['Confident', 73],
+                                                                                                      ['Surprised', 40],
+                                                                                                        ]);
+
+                                                                // Set chart options
+                                                                var optionsMood = {'title':'Number of photos were you seem:',
+                                                                                         'width':700,
+                                                                                                                'height':300};
+
+                                                                        // Instantiate and draw our chart, passing in some options.
+                                                                        var chartMood = new google.visualization.PieChart(document.getElementById('chart_Mood'));
+                                                                                chartMood.draw(dataMood, optionsMood);
+                                                                                      }
+
+
+    </script>
+
+<div class="perreo">
+<div class="row">
+  <div class= "col-12">
+    <h4>Posts Statistics</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class= "col-6">
+    <div id="chart_div"></div>
+  </div>
+  <div class="col-6">
+    <div id="chart_Bar"></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class= "col-12">
+    <h4>Photos Statistics</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class= "col-6">
+    <div id="chart_Mood"></div>
+  </div>
+  <div class="col-6">
+    <div id="gender_Bar"></div>
+  </div>
+</div>
+</div>

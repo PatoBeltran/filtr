@@ -33,6 +33,8 @@
       </ul>
       <ul class="pull-right">
         <%- if user_signed_in? %>
+          <li><%= link_to "Profile", current_user %></li>
+          <li class="divider"></li>
           <li><%= link_to "Sign out", destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: :delete, id: "sign_out" %></li>
         <% end %>
       </ul>
