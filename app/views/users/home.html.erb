@@ -1,17 +1,13 @@
-<ul class="navigation inline" data-tabu data-start-index="1">
-  <li><a href="#clever">clever</a></li>
-  <li><a href="#cool">cool</a></li>
-  <li><a href="#cheesy">cheesy</a></li>
-</ul>
-<div class="tabu-content">
-  <div class="content" id="clever">
-    <% @results_clever.each do |post| %>
+<% if current_user.admin? %>
+  <% @results.each do |post| %>
       <div class="clever post">
-        <div class="ribbon-wrapper">
-          <div class="corner">
-            <span href="#"><%= post["type"] %></span>
+        <% if post["type"] %>
+          <div class="ribbon-wrapper">
+            <div class="corner">
+              <span href="#"><%= post["type"] %></span>
+            </div>
           </div>
-        </div>
+        <% end %>
         <div class="content row">
           <div class="col-3">
             <% if post["picture"] %>
@@ -29,66 +25,111 @@
             </div>
           </div>
         </div>
+        <%= link_to "Cheesy", classify_user_path(type: "cheesy", pid: post["id"], message: post["message"]) %>
+        <%= link_to "Clever", classify_user_path(type: "clever", pid: post["id"], message: post["message"]) %>
+        <%= link_to "Cool", classify_user_path(type: "cool", pid: post["id"], message: post["message"]) %>
       </div>
     <% end %>
-  </div>
-  <div class="content" id="cool">
-    <% @results_cool.each do |post| %>
-       <div class="cool post">
-         <div class="ribbon-wrapper">
-          <div class="corner">
-            <span href="#"><%= post["type"] %></span>
-          </div>
-        </div>
-        <div class="content row">
-          <div class="col-3">
-            <% if post["picture"] %>
-              <%= image_tag post["picture"], class: "responsive" %>
-            <% end %>
-          </div>
-          <div class="col-4">
-            <%= post["message"] %>
-          </div>
-          <div class="col-5 row">
-            <div class="col-12">
-              <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                <div class="stats"><%= "#{option[0]}ness: #{option[1].round(3)}" %></div>
+<% else %>
+  <ul class="navigation inline" data-tabu data-start-index="1">
+    <li><a href="#clever">clever</a></li>
+    <li><a href="#cool">cool</a></li>
+    <li><a href="#cheesy">cheesy</a></li>
+  </ul>
+  <div class="tabu-content">
+    <div class="content" id="clever">
+      <% @results_clever.each do |post| %>
+        <div class="clever post">
+          <% if post["type"] %>
+            <div class="ribbon-wrapper">
+              <div class="corner">
+                <span href="#"><%= post["type"] %></span>
+              </div>
+            </div>
+          <% end %>
+          <div class="content row">
+            <div class="col-3">
+              <% if post["picture"] %>
+                <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
+            </div>
+            <div class="col-4">
+              <%= post["message"] %>
+            </div>
+            <div class="col-5 row">
+              <div class="col-12">
+                <% @classifier.classifications("#{post["message"]}").each do |option| %>
+                  <div class="stats"><%= "#{option[0]}ness: #{option[1].round(3)}" %></div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="content" id="cheesy">
-    <% @results_cheesy.each do |post| %>
-      <div class="cheesy post">
-        <div class="ribbon-wrapper">
-          <div class="corner">
-            <span href="#"><%= post["type"] %></span>
-          </div>
-        </div>
-        <div class="content row">
-          <div class="col-3">
-            <% if post["picture"] %>
-              <%= image_tag post["picture"], class: "responsive" %>
-            <% end %>
-          </div>
-          <div class="col-4">
-            <%= post["message"] %>
-          </div>
-          <div class="col-5 row">
-            <div class="col-12">
-              <% @classifier.classifications("#{post["message"]}").each do |option| %>
-                <div class="stats"><%= "#{option[0]}ness: #{option[1].round(3)}" %></div>
+      <% end %>
+    </div>
+    <div class="content" id="cool">
+      <% @results_cool.each do |post| %>
+        <div class="cool post">
+          <% if post["type"] %>
+            <div class="ribbon-wrapper">
+              <div class="corner">
+                <span href="#"><%= post["type"] %></span>
+              </div>
+            </div>
+          <% end %>
+          <div class="content row">
+            <div class="col-3">
+              <% if post["picture"] %>
+                <%= image_tag post["picture"], class: "responsive" %>
               <% end %>
+            </div>
+            <div class="col-4">
+              <%= post["message"] %>
+            </div>
+            <div class="col-5 row">
+              <div class="col-12">
+                <% @classifier.classifications("#{post["message"]}").each do |option| %>
+                  <div class="stats"><%= "#{option[0]}ness: #{option[1].round(3)}" %></div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="content" id="cheesy">
+      <% @results_cheesy.each do |post| %>
+        <div class="cheesy post">
+          <% if post["type"] %>
+            <div class="ribbon-wrapper">
+              <div class="corner">
+                <span href="#"><%= post["type"] %></span>
+              </div>
+            </div>
+          <% end %>
+          <div class="content row">
+            <div class="col-3">
+              <% if post["picture"] %>
+                <%= image_tag post["picture"], class: "responsive" %>
+              <% end %>
+            </div>
+            <div class="col-4">
+              <%= post["message"] %>
+            </div>
+            <div class="col-5 row">
+              <div class="col-12">
+                <% @classifier.classifications("#{post["message"]}").each do |option| %>
+                  <div class="stats"><%= "#{option[0]}ness: #{option[1].round(3)}" %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
+
 
 <%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
 <%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
