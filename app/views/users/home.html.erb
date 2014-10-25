@@ -1,3 +1,10 @@
+<% if @error %>
+  <div class="error-msg">
+    <div class="text-msg">
+      <h1><%= @error %></h1>
+    </div>
+  </div>
+<% else %>
 <div class="wrapper">
 <% icons = ["heart", "bolt", "glass"] %>
 <% if current_user.admin? %>
@@ -147,3 +154,4 @@
   </div>
 </div>
 </div>
+<% end %>

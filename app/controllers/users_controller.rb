@@ -9,14 +9,19 @@ class UsersController < ApplicationController
   def home
     @user = User.find(params[:id])
     @classifier = classifier
-    @posts = params[:page] ? @user.facebook.get_page(params[:page]) : @user.facebook.get_connections("me", "home?fields=id,message,type,picture")
-    @results =  @posts.select { |a| (a["type"] == "status" || a["type"] == "link" || a["type"] == "photo") && a["message"]}
 
-    @results_clever = @results.select {|a|  @classifier.classify("#{a["message"]}") == "clever"}
-    @results_cheesy = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cheesy"}
-    @results_cool = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cool"}
+    begin
+      @posts = params[:page] ? @user.facebook.get_page(params[:page]) : @user.facebook.get_connections("me", "home?fields=id,message,type,picture")
+      @results =  @posts.select { |a| (a["type"] == "status" || a["type"] == "link" || a["type"] == "photo") && a["message"]}
 
-    @results = @results.select { |a| !ClasifiedPost.find_by(pid: a["id"]) } if current_user.admin?
+      @results_clever = @results.select {|a|  @classifier.classify("#{a["message"]}") == "clever"}
+      @results_cheesy = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cheesy"}
+      @results_cool = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cool"}
+
+      @results = @results.select { |a| !ClasifiedPost.find_by(pid: a["id"]) } if current_user.admin?
+    rescue
+      @error = "You didn't give the app permission to view your news feed :("
+    end
   end
 
   def classify

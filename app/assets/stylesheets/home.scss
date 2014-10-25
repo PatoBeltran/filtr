@@ -133,3 +133,22 @@
 .col-32 {
   width: 29%;
 }
+
+.error-msg {
+  width: 100%;
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #3498d9), color-stop(100%, #67b2e3));
+	background: -webkit-linear-gradient(left, #3498d9, #67b2e3);
+	background: -moz-linear-gradient(left, #3498d9, #67b2e3);
+	background: -o-linear-gradient(left, #3498d9, #67b2e3);
+	background: linear-gradient(left, #3498d9, #67b2e3);
+  height: 500px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -10px;
+  padding-top: 15%;
+}
+
+.error-msg .text-msg {
+  width: 50%;
+  margin: 0 auto;
+}
