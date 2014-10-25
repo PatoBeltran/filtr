@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     @results_cheesy = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cheesy"}
     @results_cool = @results.select {|a|  @classifier.classify("#{a["message"]}") == "cool"}
 
-    @results_clever = ["HEEY", "WUWUW"]
     @results = @results.select { |a| !ClasifiedPost.find_by(pid: a["id"]) } if current_user.admin?
   end
 
