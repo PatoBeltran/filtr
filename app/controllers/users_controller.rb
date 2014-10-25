@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @classifier = classifier
 
     begin
-      @posts = params[:page] ? @user.facebook.get_page(params[:page]) : @user.facebook.get_connections("me", "home?fields=id,message,type,picture")
+      @posts = params[:page] ? @user.facebook.get_page(params[:page]) : @user.facebook.get_connections("me", "home?fields=id,message,type,picture,from")
       @results =  @posts.select { |a| (a["type"] == "status" || a["type"] == "link" || a["type"] == "photo") && a["message"]}
 
       @results_clever = @results.select {|a|  @classifier.classify("#{a["message"]}") == "clever"}
