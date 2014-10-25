@@ -39,13 +39,14 @@ gem 'spring',        group: :development
 # Use debugger
 gem 'byebug', group: [:development, :test]
 
-
 gem "figaro"
 gem "unicorn"
 gem "devise"
 gem 'compass-rails', '~> 1.1.3'
 gem 'furatto'
 gem 'omniauth-facebook'
+gem 'koala'
+gem 'annotate'
 
 group :test do
   gem "cucumber-rails", require: false

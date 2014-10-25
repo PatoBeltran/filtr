@@ -36,6 +36,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     better_errors (2.0.0)
@@ -132,6 +135,10 @@ GEM
     jwt (0.1.13)
       multi_json (>= 1.5)
     kgio (2.9.2)
+    koala (1.10.1)
+      addressable
+      faraday
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     mail (2.6.1)
@@ -255,6 +262,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   better_errors
   binding_of_caller
   byebug
@@ -271,6 +279,7 @@ DEPENDENCIES
   furatto
   jbuilder (~> 2.0)
   jquery-rails
+  koala
   omniauth-facebook
   pg
   rails (= 4.1.6)
