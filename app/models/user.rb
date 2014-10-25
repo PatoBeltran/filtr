@@ -20,6 +20,7 @@
 #  name                   :string(255)
 #  oauth_token            :text
 #  oauth_expires_at       :datetime
+#  admin                  :boolean          default(FALSE), not null
 #
 
 class User < ActiveRecord::Base

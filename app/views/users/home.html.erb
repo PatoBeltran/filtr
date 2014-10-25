@@ -1,1 +1,19 @@
-<%= @user.name %>
+<% @results.each do |post| %>
+  <div>
+    <div><strong>Clasification: </strong><%= @classifier.classify post["message"] %></div>
+    <div><strong>Type:</strong> <%= post["type"] %></div>
+    <div><strong>Message:</strong> <%= post["message"] %></div>
+    <% if post["picture"] %>
+      <%= image_tag post["picture"], class: "responsive" %>
+    <% end %>
+    <% if current_user.admin? %>
+      <%= link_to "Cheesy", classify_user_path(type: "cheesy", pid: post["id"], message: post["message"]) %>
+      <%= link_to "Clever", classify_user_path(type: "clever", pid: post["id"], message: post["message"]) %>
+      <%= link_to "Cool", classify_user_path(type: "cool", pid: post["id"], message: post["message"]) %>
+    <% end %>
+    <hr />
+  </div>
+<% end %>
+
+<%= link_to 'Previous', url_for(:page => @posts.previous_page_params) %>
+<%= link_to 'Next', url_for(:page => @posts.next_page_params) %>
