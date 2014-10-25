@@ -4,4 +4,8 @@ class PagesController < ApplicationController
       redirect_to home_user_path(current_user)
     end
   end
+
+  def privacypolicy
+  end
 end
+
