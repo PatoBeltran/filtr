@@ -2,30 +2,29 @@
 <% icons = ["heart", "bolt", "glass"] %>
 <% if current_user.admin? %>
   <% @results.each do |post| %>
-      <div class="clever post">
+      <div class="post">
         <% if post["type"] %>
-            <div class="ribbon-wrapper">
-              <div class="corner">
-                <span href="#"><%= post["type"] %></span>
-              </div>
+          <div class="ribbon-wrapper">
+            <div class="corner">
+              <span href="#"><%= post["type"] %></span>
             </div>
-          <% end %>
-          <div class="info row">
-            <div class="col-3 pict">
-              <% if post["picture"] %>
-                <%= image_tag post["picture"], class: "responsive" %>
+          </div>
+        <% end %>
+        <div class="info row">
+          <div class="col-3 pict">
+            <% if post["picture"] %>
+              <%= image_tag post["picture"], class: "responsive" %>
+            <% end %>
+          </div>
+          <div class="col-5 msg">
+            <%= post["message"] %>
+          </div>
+          <div class="col-4 row sta">
+            <div class="col-2"></div>
+            <div class="col-10">
+              <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
+                <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
               <% end %>
-            </div>
-            <div class="col-5 msg">
-              <%= post["message"] %>
-            </div>
-            <div class="col-4 row sta">
-              <div class="col-2"></div>
-              <div class="col-10">
-                <% @classifier.classifications("#{post["message"]}").each_with_index do |option, i| %>
-                  <div class="stats clearfix"> <div class="nam"> <i class="fa fa-<%= icons[i] %>"></i> <%= "#{option[0]}ness: " %> </div> <div class="numb"><%= "#{option[1].round(2)}" %></div></div>
-                <% end %>
-              </div>
             </div>
           </div>
         </div>
