@@ -1,0 +1,54 @@
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  padding: 3%;
+}
+
+.post {
+  min-height: 300px;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin: 15px;
+  border-radius: 3px;
+}
+.clever {
+  background: tomato;
+}
+
+.cool {
+  background: lightblue;
+}
+
+.cheesy {
+  background: lightgreen;
+}
+
+.stats {
+  background: #ccc;
+  margin: 2px;
+}
+
+.ribbon-wrapper { 
+  position:relative;
+  width:150px; 
+  height: 150px;
+  overflow:hidden;
+}
+.corner {
+    background-color: #a00;
+    overflow: hidden;
+    position: absolute;
+    left: -2.5em;
+    top: 1.5em;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.corner span {
+    color: #fff;
+    display: block;
+    font-size:.8em;
+    font-weight:bold;
+    padding: 0.5em 4em;
+    text-align: center;
+    text-decoration: none;
+}
