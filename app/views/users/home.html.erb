@@ -1,5 +1,6 @@
 <% @results.each do |post| %>
   <div>
+    <div><strong>Classification:</strong> <%= @classifier.classify "#{post["message"]}" %></div>
     <div><strong>Type:</strong> <%= post["type"] %></div>
     <div><strong>Message:</strong> <%= post["message"] %></div>
     <% if post["picture"] %>
