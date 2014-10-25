@@ -1,3 +1,9 @@
-<%- unless user_signed_in? %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<% end %>
+<div class="section-jumbo-container">
+ 	<h1 class="jumbo-header">Filtr</h1>
+ 	<h2 class="motto">Your news feed, classified ;)</h2>
+  	<div class="btn-social btn-facebook">
+	  	<%- unless user_signed_in? %>
+		  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), style: 'color:#FFFFFF;'%>
+		<% end %>
+	</div>
+</div>
