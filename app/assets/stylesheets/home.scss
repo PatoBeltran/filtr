@@ -1,0 +1,102 @@
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  padding: 3%;
+}
+
+.post {
+  min-height: 300px;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin: 15px;
+  border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.post .info {
+  margin-top: -90px;
+}
+.clever {
+  background: tomato;
+}
+
+.cool {
+  background: lightblue;
+}
+
+.cheesy {
+  background: lightgreen;
+}
+
+.stats {
+  background: #ccc;
+  margin: 5px;
+  border: 1px solid rgba(100,100,100, 0.5);
+  border-radius: 3px;
+  height: 40px;
+  width: 140px;
+  margin: 0 auto;
+}
+
+.stats .numb {
+  border-left: 1px solid rgba(100,100,100, 0.8);
+  background: #ddd;
+  width: 53px;
+  line-height: 40px;
+  height: 100%;
+  padding-left: 15px;
+}
+
+.stats > div {
+  float: left;
+}
+
+.stats .nam {
+  line-height: 40px;
+  margin-left: 7px;
+  margin-right: 7px;
+  width: 71px;
+  font-size: 13px;
+}
+
+.msg, .pict, .sta {
+  text-align: center;
+}
+
+.msg {
+  padding-top: 2em;
+  font-size: 1.2em;
+}
+
+.ribbon-wrapper { 
+  position:relative;
+  width:150px; 
+  height: 90px;
+  overflow:hidden;
+  margin-left: -15px;
+  opacity: .7;
+}
+.corner {
+    background-color: #a00;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    left: -2.5em;
+    top: 1.5em;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.corner span {
+    color: #fff;
+    display: block;
+    font-size:.8em;
+    font-weight:bold;
+    padding: 0.5em 4em;
+    text-align: center;
+    text-decoration: none;
+}
+.col-3 .pict {
+  text-align: center;
+}
+

@@ -43,9 +43,10 @@
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
-    <!--
     <div class="footer">
       <div class="row">
         <p>Built in Facebook Hackathon, Tec de Monterrey 2014</p>
@@ -54,12 +55,7 @@
         </ul>
       </div>
     </div>
-    -->
-
-    <div class="footer">
-      <p>Built in Facebook Hackathon, Tec de Monterrey 2014</p>
-    </div>
-
+    
     <div id=“fb-root”></div>
     <%= javascript_include_tag "application" %>
 </body>
