@@ -10,7 +10,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @classifier = classifier
     @posts = params[:page] ? @user.facebook.get_page(params[:page]) : @user.facebook.get_connections("me", "home?fields=id,message,type,picture")
-    @results =  @posts.select { |a| (a["type"] == "status" || a["type"] == "link" || a["type"] == "photo") && a["message"] && !ClasifiedPost.find_by(pid: a["id"]) }
+    @results =  @posts.select { |a| (a["type"] == "status" || a["type"] == "link" || a["type"] == "photo") && a["message"]}
+    @results = @results.select { |a| !ClasifiedPost.find_by(pid: a["id"]) } if current_user.admin?
   end
 
   def classify
